@@ -22,18 +22,23 @@ photos = [
  }
 ]
 
-def categorize(photo: dict) -> dict:
-    categories = {}
-    for i in range(0, len(photos)-1):
-        for j in range(i+1, len(photos)):
-            photo_i, photo_j = photos[i]["name"],photos[j]["name"]
-            interc = photos[i]["tags"].intersection(photos[j]["tags"])
+def main() -> int:
+    def categorize(photo: dict) -> dict:
+        categories = {}
+        for i in range(0, len(photos)-1):
+            for j in range(i+1, len(photos)):
+                photo_i, photo_j = photos[i]["name"],photos[j]["name"]
+                interc = photos[i]["tags"].intersection(photos[j]["tags"])
 
-            for categ in interc:
-                categories.setdefault(categ, {photo_i, photo_j}).update([photo_i, photo_j])
-    return categories
+                for categ in interc:
+                    categories.setdefault(categ, {photo_i, photo_j}).update([photo_i, photo_j])
+        return categories
 
-def tabulate_dict(categ: dict) -> str:
-    return tabulate(categ, headers=categ.keys(), tablefmt='fancy_grid')
+    def tabulate_dict(categ: dict) -> str:
+        return tabulate(categ, headers=categ.keys(), tablefmt='fancy_grid')
 
-print(tabulate_dict(categorize(photos)))
+    print(tabulate_dict(categorize(photos)))
+    return 0
+
+if __name__ == "__main__":
+    main()
