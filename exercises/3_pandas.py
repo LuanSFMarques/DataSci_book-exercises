@@ -1,6 +1,9 @@
 import pandas as pd
 import random
 
+# Exercise 3
+# Creating a DataFrame with Series
+
 def main() -> None:
     names = ['Victor','Joseph','Robert']
     emails= ['Victor123@gmail.com','Jojo@gmail.com','RobertCool@gmail.com']
