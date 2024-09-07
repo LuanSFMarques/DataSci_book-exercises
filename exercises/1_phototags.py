@@ -1,5 +1,8 @@
 from tabulate import tabulate
 
+# Exercise 1
+# This algorithm lists unique tags in a dictionary, having as its value all photos that have that same tag;
+
 photos = [
  {
   "name": "photo1.jpg",
