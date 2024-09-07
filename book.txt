@@ -1,0 +1,2 @@
+Book name: "Python for Data Science"
+author: "Yuli Vasiliev"
